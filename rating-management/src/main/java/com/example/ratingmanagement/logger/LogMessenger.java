@@ -49,6 +49,9 @@ public class LogMessenger {
 
         HttpClient client = HttpClient.newHttpClient();
 
+        client.sendAsync(request, HttpResponse.BodyHandlers.ofString());
+
+        /*
         try {
 
             HttpResponse<String> response = client.send(request, HttpResponse.BodyHandlers.ofString());
@@ -59,7 +62,8 @@ public class LogMessenger {
 
         } catch (Exception e){
             throw new RuntimeException(e.getMessage());
-        }
+        }*/
+
 
     }
 

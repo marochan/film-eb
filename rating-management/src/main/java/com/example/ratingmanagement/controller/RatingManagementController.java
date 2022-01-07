@@ -96,7 +96,10 @@ public class RatingManagementController {
 
         } catch (Exception e){
 
-            return handleExceptionResponse(e);
+            StringWriter sw = new StringWriter();
+            PrintWriter pw = new PrintWriter(sw);
+            e.printStackTrace(pw);
+            return e.getMessage()+sw.toString();
 
         }
     }

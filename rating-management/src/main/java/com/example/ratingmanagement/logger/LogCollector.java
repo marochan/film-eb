@@ -9,10 +9,14 @@ import org.springframework.stereotype.Component;
 import java.io.PrintWriter;
 import java.io.StringWriter;
 import java.sql.Timestamp;
+import java.text.SimpleDateFormat;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Date;
 import java.util.List;
+
+import static java.time.format.DateTimeFormatter.ISO_LOCAL_DATE_TIME;
 
 @Component
 @Scope("singleton")
@@ -29,13 +33,18 @@ public class LogCollector{
         private String type;
         private String stackTrace;
         private String message;
-        private Timestamp timestamp;
+        private String timestamp;
 
         public Log(String type, String message, String stackTrace){
             this.type = type;
             this.stackTrace = stackTrace;
             this.message = message;
-            this.timestamp = new Timestamp(System.currentTimeMillis());
+
+            String pattern = "yyyy-MM-dd'T'HH:mm:ss.SSSZ";
+            SimpleDateFormat simpleDateFormat = new SimpleDateFormat(pattern);
+
+            this.timestamp = simpleDateFormat.format(new Date());
+
             this.origin = appName;
         }
 
