@@ -34,6 +34,15 @@ public class RecommendationProcessingController {
 
     private static final Map<String, Double> multipliers = new HashMap<>();
 
+    public RecommendationProcessingController(){
+        multipliers.put("m1", 1d);
+        multipliers.put("m2", 1d);
+        multipliers.put("m3", 1d);
+        multipliers.put("m4", 1d);
+        multipliers.put("m5", 1d);
+        multipliers.put("m6", 1d);
+    }
+
     private static void setMultiplier(String key, Double value){
         multipliers.put(key, value);
     }
