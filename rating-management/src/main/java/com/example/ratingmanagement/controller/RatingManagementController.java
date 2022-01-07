@@ -107,8 +107,8 @@ public class RatingManagementController {
 
     private Object handleExceptionResponse(Exception e){
 
-        //logCollector.addLog(e);
-        //logCollector.release();
+        logCollector.addLog(e);
+        logCollector.release();
 
         return "Exception occured and has been logged: " + e.getMessage();
     }
