@@ -1,5 +1,6 @@
 package com.example.ratingmanagement.requesthandler;
 
+import com.example.ratingmanagement.logger.LogCollector;
 import com.netflix.appinfo.InstanceInfo;
 import com.netflix.discovery.EurekaClient;
 import com.netflix.discovery.shared.Application;
@@ -24,6 +25,9 @@ public class DataAccessManager {
 
     @Autowired
     private EurekaClient eurekaClient;
+
+    @Autowired
+    private LogCollector logCollector;
 
     private static final String dataAccessServiceName = "data-access";
 
@@ -66,7 +70,7 @@ public class DataAccessManager {
 
             return client.send(builder.build(), HttpResponse.BodyHandlers.ofString());
         } catch (Exception e){
-            //log exception
+            logCollector.addLog(e);
             throw new RuntimeException("Unable to reach data access. Try again later :^). " + e.getMessage());
         }
 
