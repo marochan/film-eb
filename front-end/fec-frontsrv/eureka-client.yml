@@ -1,0 +1,11 @@
+eureka:
+  host: "runtime-config"
+  port: 8761
+  servicePath: "/eureka/apps/"
+  registryFetchInterval: 1000
+instance:
+  app: "front-server"
+  port: 80
+  vipAddress: "front-server"
+  dataCenterInfo:
+    name: "MyOwn"

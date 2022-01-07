@@ -1,0 +1,6 @@
+com\filmlebendczil\logmanagement\entities\Log.class
+com\filmlebendczil\logmanagement\entities\LogConfig.class
+com\filmlebendczil\logmanagement\LogManagementApplication.class
+com\filmlebendczil\logmanagement\controller\LogManagementController$1.class
+com\filmlebendczil\logmanagement\controller\LogManagementController.class
+com\filmlebendczil\logmanagement\repository\LogRepository.class

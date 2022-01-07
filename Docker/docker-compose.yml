@@ -1,0 +1,67 @@
+version: "3.4"
+services:
+ runtime-config:
+  image: marochan442/filmlebendczil-runtime-config-server
+  ports:
+   - "8761:8761"
+
+ rating-management:
+  image: rating-management
+  environment: 
+   # Important for clients to register with eureka
+   - eureka.client.serviceUrl.defaultZone=http://runtime-config:8761/eureka/
+  ports:
+   - "3333:3333"
+  depends_on:
+   - runtime-config
+
+ data-access:
+  image: data-access-service
+  environment: 
+   # Important for clients to register with eureka
+   - eureka.client.serviceUrl.defaultZone=http://runtime-config:8761/eureka/
+  ports:
+   - "8080:8080"
+  depends_on:
+   - runtime-config
+
+
+ frontend-server:
+  image: front-end
+  environment: 
+   # Important for clients to register with eureka
+   - eureka.client.serviceUrl.defaultZone=http://runtime-config:8761/eureka/
+  ports:
+   - "80:80"
+  depends_on:
+   - runtime-config
+
+ recommendation-processing:
+  image: recommendation-processing
+  environment: 
+   # Important for clients to register with eureka
+   - eureka.client.serviceUrl.defaultZone=http://runtime-config:8761/eureka/
+  ports:
+   - "8762:8762"
+  depends_on:
+   - runtime-config
+
+ log-management:
+  image: log-management
+  environment: 
+   # Important for clients to register with eureka
+   - eureka.client.serviceUrl.defaultZone=http://runtime-config:8761/eureka/
+  ports:
+   - "1111:1111"
+  depends_on:
+   - runtime-config
+
+ user-service:
+  image: user-service
+  environment: 
+   # Important for clients to register with eureka
+   - eureka.client.serviceUrl.defaultZone=http://runtime-config:8761/eureka/
+  ports:
+   - "9090:9090"
+  depends_on:
+   - runtime-config

@@ -1,0 +1,11 @@
+com\filmlebendczil\dataaccessservice\DataAccessServiceApplication.class
+com\filmlebendczil\dataaccessservice\controller\DataAccessController.class
+com\filmlebendczil\dataaccessservice\controller\DataAccessController$3.class
+com\filmlebendczil\dataaccessservice\controller\DataAccessController$2.class
+com\filmlebendczil\dataaccessservice\entity\Member.class
+com\filmlebendczil\dataaccessservice\repository\MovieRepository.class
+com\filmlebendczil\dataaccessservice\entity\MovieRating.class
+com\filmlebendczil\dataaccessservice\controller\DataAccessController$1.class
+com\filmlebendczil\dataaccessservice\repository\MemberRepository.class
+com\filmlebendczil\dataaccessservice\repository\MovieRatingRepository.class
+com\filmlebendczil\dataaccessservice\entity\Movie.class
