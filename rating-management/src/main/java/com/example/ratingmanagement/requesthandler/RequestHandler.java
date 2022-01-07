@@ -66,12 +66,9 @@ public class RequestHandler {
 
     }
 
-    public void updateRating(String parameterJson) throws JsonProcessingException {
+    public void updateRating(String body) throws JsonProcessingException {
 
-        Map<String,String> params =
-                new ObjectMapper().readValue(parameterJson, HashMap.class);
-
-        HttpResponse<String> response = dataAccessManager.callDA("rate", params, null);
+        HttpResponse<String> response = dataAccessManager.callDA("rate", body);
 
         if(response.statusCode() != 200){
             throw new RuntimeException("Rate request was made but the response was unsuccessful. " + response.body());

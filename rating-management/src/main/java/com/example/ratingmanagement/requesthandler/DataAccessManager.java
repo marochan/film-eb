@@ -61,6 +61,11 @@ public class DataAccessManager {
             if (serviceToMethodMap.get(service) == "GET") {
                 builder.GET();
             } else if (serviceToMethodMap.get(service) == "POST") {
+
+                if(body == null && body.isEmpty()){
+                    throw new IllegalArgumentException("Body should not be empty");
+                }
+
                 builder.POST(HttpRequest.BodyPublishers.ofString(body));
             } else {
                 throw new IllegalArgumentException("Unknown service: " + service);
